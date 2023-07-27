@@ -1,0 +1,37 @@
+@import "./theme.css";
+
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #000;
+  --primary-hover: #1288ff;
+  --primary-focus: rgb(183, 0, 255);
+  --primary-inverse: #FFF;
+}
+
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary: #fff;
+    --primary-hover: #1288ff;
+    --primary-focus: rgb(0, 149, 255);
+    --primary-inverse: #000;
+  }
+}
+
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --primary: #fff;
+  --primary-hover: #1288ff;
+  --primary-focus: rgb(255, 255, 255);
+  --primary-inverse: #000;
+}
+
+/* (Common styles) */
+:root {
+  --typography-spacing-vertical: 0.5rem !important;
+  --font-size: 0.95rem !important;
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
